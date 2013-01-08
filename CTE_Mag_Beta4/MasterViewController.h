@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "list.h"
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+@property (nonatomic, retain) AppDelegate *app;
+@property (nonatomic, retain) list *thelist;
 
 @end

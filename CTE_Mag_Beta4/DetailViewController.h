@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "list.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController{
+    
+    
+    IBOutlet UILabel *header;
+    IBOutlet UILabel *body;
+    
+}
 
-@property (strong, nonatomic) id detailItem;
+@property (nonatomic, retain) list *thelist;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
 @end
+
+

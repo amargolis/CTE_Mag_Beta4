@@ -7,13 +7,39 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Parser.h"
 #import "MasterViewController.h"
 
 @implementation AppDelegate
+@synthesize listArray;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSURL *url = [[NSURL alloc]
+                  initWithString:@"http://nst.us.to/article/static_xml.xml"];
+    
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+    
+    Parser *theParser = [[Parser alloc] initParser];
+    
+    [xmlParser setDelegate:theParser];
+    
+    BOOL worked = [xmlParser parse];
+    
+    if (worked) {
+        NSLog(@"Amount %i", [listArray count]);
+    }
+    else {
+        NSLog(@"boo");
+        
+
+    }
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
